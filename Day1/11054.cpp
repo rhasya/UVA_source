@@ -19,7 +19,7 @@ int main() {
 		while (A[p_idx] < 0) p_idx++;
 		while (A[m_idx] >= 0) m_idx++;
 
-		int ans = 0;
+		long long ans = 0;
 		while (p_idx < N && m_idx < N) {
 			if (A[p_idx] > -A[m_idx]) {
 				int v = -A[m_idx];
