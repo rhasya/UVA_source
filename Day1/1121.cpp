@@ -2,25 +2,36 @@
 using namespace std;
 
 int A[100000];
+
 /* 1121 - Subsequence */
-int main()
-{
+int main() {
 	int N, S;
-	while (scanf("%d%d", &N, &S) > 0) {
-		int ans = N + 1, sum = 0;
-		int s = 0;
-		for (int i = 0; i < N; i++)
-		{
-			scanf("%d", &A[i]);
+
+	while (cin >> N >> S && !cin.eof()) {
+		int ans = N + 1;
+		int sum = 0;
+
+		int front = 0;
+		for (int i = 0; i < N; ++i) {
+			cin >> A[i];
 			sum += A[i];
-			if (sum >= S)
-			{
-				while (s < i && sum - A[s] >= S) sum -= A[s++];
-				if (ans > i - s + 1) ans = i - s + 1;
+
+			if (sum >= S) {
+				while (front < i && sum - A[front] >= S) {
+					sum -= A[front];
+					front++;
+				}
+				if (ans > i - front + 1) {
+					ans = i - front + 1;
+				}
 			}
 		}
-		if (ans == N + 1) ans = 0;
-		printf("%d\n", ans);
+
+		if (ans == N + 1) {
+			ans = 0;
+		}
+		cout << ans << endl;
 	}
+
 	return 0;
 }
