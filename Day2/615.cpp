@@ -26,6 +26,7 @@ bool dfs(Node* node) {
 	return result;
 }
 
+/* 615 - Is it a tree? */
 int main() {
 	int N1, N2;
 	int k = 0;
